@@ -1,4 +1,5 @@
 Summary:	Networking support for GLib
+Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
 Version:	2.28.0
 Release:	1
@@ -14,7 +15,7 @@ BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnutls-devel >= 2.1.7
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libproxy-devel >= 0.3.1
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.0
 BuildRequires:	pkgconfig
 Requires(post,postun):	glib2 >= 1:2.28.0
 Requires:	ca-certificates
@@ -25,6 +26,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This package contains modules that extend the networking support in
 GIO. In particular, it contains a libproxy-based GProxyResolver
 implementation and a gnutls-based GTlsConnection implementation.
+
+%description -l pl.UTF-8
+Ten pakiet zawiera moduły rozszerzające obsługę sieci w GIO, w
+szczególności: implementację GProxyResolver opartą na libproxy oraz
+implementację GTlsConnection opartą na gnutls.
 
 %prep
 %setup -q
