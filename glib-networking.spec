@@ -1,12 +1,12 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.29.18
+Version:	2.29.92
 Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.29/%{name}-%{version}.tar.xz
-# Source0-md5:	49341f558b068255938787da8b52833a
+# Source0-md5:	c0091506f4beb9e2f996a8a3981d6097
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake
