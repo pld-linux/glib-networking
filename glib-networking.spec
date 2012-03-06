@@ -1,25 +1,28 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.30.2
+Version:	2.31.20
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.30/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.31/%{name}-%{version}.tar.xz
 # Source0-md5:	844886c099cbd3cbf43f52bac4da2ba7
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.65
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.29.18
-BuildRequires:	gnutls-devel >= 2.1.7
+BuildRequires:	glib2-devel >= 1:2.31.6
+BuildRequires:	gnutls-devel >= 2.12.8
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	libtool >= 2:2.0
+BuildRequires:	p11-kit-devel >= 0.8
 BuildRequires:	pkgconfig
-Requires(post,postun):	glib2 >= 1:2.29.18
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires(post,postun):	glib2 >= 1:2.31.6
 Requires:	ca-certificates
 Requires:	libproxy >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
