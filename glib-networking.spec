@@ -24,6 +24,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.31.6
 Requires:	ca-certificates
+Requires:	glib2 >= 1:2.31.6
 Requires:	libproxy >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
