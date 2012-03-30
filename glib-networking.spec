@@ -25,6 +25,7 @@ BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.31.6
 Requires:	ca-certificates
 Requires:	glib2 >= 1:2.31.6
+Requires:	gsettings-desktop-schemas
 Requires:	libproxy >= 0.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
