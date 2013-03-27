@@ -25,8 +25,10 @@ BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.35.8
 Requires:	ca-certificates
 Requires:	glib2 >= 1:2.35.8
+Requires:	gnutls >= 2.12.8
 Requires:	gsettings-desktop-schemas
 Requires:	libproxy >= 0.3.1
+Requires:	p11-kit >= 0.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
