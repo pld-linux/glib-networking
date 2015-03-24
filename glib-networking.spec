@@ -11,20 +11,19 @@ URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	glib2-devel >= 1:2.42.0
 BuildRequires:	gnutls-devel >= 3.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	p11-kit-devel >= 0.8
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.40.0
+Requires(post,postun):	glib2 >= 1:2.42.0
 Requires:	ca-certificates
-Requires:	glib2 >= 1:2.40.0
+Requires:	glib2 >= 1:2.42.0
 Requires:	gnutls >= 3.0
 Requires:	gsettings-desktop-schemas
 Requires:	libproxy >= 0.3.1
