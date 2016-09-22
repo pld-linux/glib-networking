@@ -10,11 +10,10 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.50/%{name}-%{v
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.46.0
 BuildRequires:	gnutls-devel >= 3.0
 BuildRequires:	gsettings-desktop-schemas-devel
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	p11-kit-devel >= 0.8
