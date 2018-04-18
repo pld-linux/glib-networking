@@ -1,32 +1,33 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.54.0
+Version:	2.56.0
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.54/%{name}-%{version}.tar.xz
-# Source0-md5:	45d2f8b650412c05e45b08aa78a3f735
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.56/%{name}-%{version}.tar.xz
+# Source0-md5:	f9e720a79014cc7d07eabd02ade0ae4e
 URL:		http://www.gnome.org/
-BuildRequires:	autoconf >= 2.65
-BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.19.4
-BuildRequires:	glib2-devel >= 1:2.46.0
-BuildRequires:	gnutls-devel >= 3.0
+BuildRequires:	glib2-devel >= 1:2.55.1
+BuildRequires:	gnutls-devel >= 3.3.5
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	libtool >= 2:2.0
-BuildRequires:	p11-kit-devel >= 0.8
+BuildRequires:	meson >= 0.43.0
+BuildRequires:	ninja
+BuildRequires:	p11-kit-devel >= 0.20
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.46.0
+Requires(post,postun):	glib2 >= 1:2.55.1
 Requires:	ca-certificates
-Requires:	glib2 >= 1:2.46.0
-Requires:	gnutls >= 3.0
+Requires:	glib2 >= 1:2.55.1
+Requires:	gnutls >= 3.3.5
 Requires:	gsettings-desktop-schemas
 Requires:	libproxy >= 0.3.1
-Requires:	p11-kit >= 0.8
+Requires:	p11-kit >= 0.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,24 +44,18 @@ implementację GTlsConnection opartą na gnutls.
 %setup -q
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-silent-rules \
-	--disable-static \
-	--with-ca-certificates=/etc/certs/ca-certificates.crt
-%{__make}
+%meson build \
+	-Dca_certificates_path=/etc/certs/ca-certificates.crt \
+	-Dinstalled_tests=false
+
+%meson_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%meson_install -C build
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/gio/modules/*.la
+rm -r $RPM_BUILD_ROOT%{_datadir}/installed-tests
 
 %find_lang %{name}
 
@@ -77,8 +72,8 @@ umask 022
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/glib-pacrunner
+%doc NEWS README
+%attr(755,root,root) %{_libexecdir}/glib-pacrunner
 %attr(755,root,root) %{_libdir}/gio/modules/libgiognutls.so
 %attr(755,root,root) %{_libdir}/gio/modules/libgiolibproxy.so
 %attr(755,root,root) %{_libdir}/gio/modules/libgiognomeproxy.so
