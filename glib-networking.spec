@@ -1,12 +1,12 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.56.0
+Version:	2.56.1
 Release:	1
 License:	LGPL v2
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.56/%{name}-%{version}.tar.xz
-# Source0-md5:	f9e720a79014cc7d07eabd02ade0ae4e
+# Source0-md5:	456572f1e8fea32ef747541d64508a8e
 URL:		http://www.gnome.org/
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.55.1
@@ -54,8 +54,6 @@ implementację GTlsConnection opartą na gnutls.
 rm -rf $RPM_BUILD_ROOT
 
 %meson_install -C build
-
-rm -r $RPM_BUILD_ROOT%{_datadir}/installed-tests
 
 %find_lang %{name}
 
