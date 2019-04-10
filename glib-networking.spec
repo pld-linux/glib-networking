@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
 Version:	2.60.1
 Release:	1
-License:	LGPL v2
+License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.60/%{name}-%{version}.tar.xz
 # Source0-md5:	83321ffc3c336894b8a5bc18db3fe58d
@@ -74,7 +74,7 @@ umask 022
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS README
+%doc LICENSE_EXCEPTION NEWS README
 %attr(755,root,root) %{_libexecdir}/glib-pacrunner
 %attr(755,root,root) %{_libdir}/gio/modules/libgiognutls.so
 %attr(755,root,root) %{_libdir}/gio/modules/libgiolibproxy.so
