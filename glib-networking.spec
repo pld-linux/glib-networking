@@ -1,7 +1,3 @@
-#
-# Conditional build:
-%bcond_with	pkcs11	# PKCS#11 support using p11-kit
-
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
@@ -12,6 +8,7 @@ Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.62/%{name}-%{version}.tar.xz
 # Source0-md5:	33487436a16f9e79beac1c1a3b55f276
 URL:		http://www.gnome.org/
+BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.60.0
 BuildRequires:	gnutls-devel >= 3.4.6
@@ -19,7 +16,6 @@ BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja
-%{?with_pkcs11:BuildRequires:	p11-kit-devel >= 0.20}
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	tar >= 1:1.22
@@ -30,7 +26,6 @@ Requires:	glib2 >= 1:2.60.0
 Requires:	gnutls-libs >= 3.4.6
 Requires:	libproxy >= 0.3.1
 Suggests:	gsettings-desktop-schemas
-%{?with_pkcs11:Requires:	p11-kit >= 0.20}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,8 +44,7 @@ implementację GTlsConnection opartą na gnutls.
 %build
 %meson build \
 	-Dca_certificates_path=/etc/certs/ca-certificates.crt \
-	-Dinstalled_tests=false \
-	%{?with_pkcs11:-Dpkcs11_support=true}
+	-Dinstalled_tests=false
 
 %meson_build -C build
 
