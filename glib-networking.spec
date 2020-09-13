@@ -1,29 +1,29 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.64.3
+Version:	2.66.0
 Release:	1
 License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.64/%{name}-%{version}.tar.xz
-# Source0-md5:	eb382907ec941fe2fb1a9676b75acf7a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.66/%{name}-%{version}.tar.xz
+# Source0-md5:	4740154ce6dcf7859fbbfd954fa5a226
 URL:		https://www.gnome.org/
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.63.0
-BuildRequires:	gnutls-devel >= 3.4.6
+BuildRequires:	gnutls-devel >= 3.6.5
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	libproxy-devel >= 0.3.1
 BuildRequires:	meson >= 0.50.0
-BuildRequires:	ninja
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.727
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.63.0
 Requires:	ca-certificates
 Requires:	glib2 >= 1:2.63.0
-Requires:	gnutls-libs >= 3.4.6
+Requires:	gnutls-libs >= 3.6.5
 Requires:	libproxy >= 0.3.1
 Suggests:	gsettings-desktop-schemas
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -46,12 +46,12 @@ implementację GTlsConnection opartą na gnutls.
 	-Dca_certificates_path=/etc/certs/ca-certificates.crt \
 	-Dinstalled_tests=false
 
-%meson_build -C build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -C build
+%ninja_install -C build
 
 %find_lang %{name}
 
