@@ -1,16 +1,16 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.68.2
+Version:	2.70.0
 Release:	1
 License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glib-networking/2.68/%{name}-%{version}.tar.xz
-# Source0-md5:	5c3b020db7d0937f75aac7654c38343f
-URL:		https://www.gnome.org/
+Source0:	https://download.gnome.org/sources/glib-networking/2.70/%{name}-%{version}.tar.xz
+# Source0-md5:	1b3c94e2c7d5c61756cbf2a4750e47f7
+URL:		https://gitlab.gnome.org/GNOME/glib-networking
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
-BuildRequires:	glib2-devel >= 1:2.67.0
+BuildRequires:	glib2-devel >= 1:2.69.0
 BuildRequires:	gnutls-devel >= 3.7
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	libproxy-devel >= 0.3.1
@@ -20,9 +20,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.67.0
+Requires(post,postun):	glib2 >= 1:2.69.0
 Requires:	ca-certificates
-Requires:	glib2 >= 1:2.67.0
+Requires:	glib2 >= 1:2.69.0
 Requires:	gnutls-libs >= 3.7
 Requires:	libproxy >= 0.3.1
 Suggests:	gsettings-desktop-schemas
