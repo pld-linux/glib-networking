@@ -1,12 +1,12 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.70.1
+Version:	2.72.0
 Release:	1
 License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glib-networking/2.70/%{name}-%{version}.tar.xz
-# Source0-md5:	c408bcfaea4ad3dea7a18f34574231b2
+Source0:	https://download.gnome.org/sources/glib-networking/2.72/%{name}-%{version}.tar.xz
+# Source0-md5:	ff149a669ea3d1d193a468472bcdc696
 URL:		https://gitlab.gnome.org/GNOME/glib-networking
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
@@ -43,7 +43,6 @@ implementację GTlsConnection opartą na gnutls.
 
 %build
 %meson build \
-	-Dca_certificates_path=/etc/certs/ca-certificates.crt \
 	-Dinstalled_tests=false
 
 %ninja_build -C build
@@ -71,6 +70,7 @@ umask 022
 %doc LICENSE_EXCEPTION NEWS README
 %attr(755,root,root) %{_libexecdir}/glib-pacrunner
 %attr(755,root,root) %{_libdir}/gio/modules/libgiognutls.so
+%attr(755,root,root) %{_libdir}/gio/modules/libgioenvironmentproxy.so
 %attr(755,root,root) %{_libdir}/gio/modules/libgiolibproxy.so
 %attr(755,root,root) %{_libdir}/gio/modules/libgiognomeproxy.so
 %{_datadir}/dbus-1/services/org.gtk.GLib.PACRunner.service
