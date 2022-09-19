@@ -1,30 +1,30 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.72.2
-Release:	2
+Version:	2.74.0
+Release:	1
 License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glib-networking/2.72/%{name}-%{version}.tar.xz
-# Source0-md5:	e07fcbbb26977ffc36fec371a0d22371
+Source0:	https://download.gnome.org/sources/glib-networking/2.74/%{name}-%{version}.tar.xz
+# Source0-md5:	7fc6ca153af0833fdf5c65044a3f7c42
 URL:		https://gitlab.gnome.org/GNOME/glib-networking
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
-BuildRequires:	glib2-devel >= 1:2.69.0
-BuildRequires:	gnutls-devel >= 3.7
+BuildRequires:	glib2-devel >= 1:2.73.3
+BuildRequires:	gnutls-devel >= 3.7.4
 BuildRequires:	gsettings-desktop-schemas-devel
-BuildRequires:	libproxy-devel >= 0.3.1
-BuildRequires:	meson >= 0.50.0
+BuildRequires:	libproxy-devel >= 0.4.16
+BuildRequires:	meson >= 0.60.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	glib2 >= 1:2.69.0
+Requires(post,postun):	glib2 >= 1:2.73.3
 Requires:	ca-certificates
-Requires:	glib2 >= 1:2.69.0
-Requires:	gnutls-libs >= 3.7
-Requires:	libproxy >= 0.3.1
+Requires:	glib2 >= 1:2.73.3
+Requires:	gnutls-libs >= 3.7.4
+Requires:	libproxy >= 0.4.16
 Suggests:	gsettings-desktop-schemas
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +43,8 @@ implementację GTlsConnection opartą na gnutls.
 
 %build
 %meson build \
+	--default-library=shared \
+	-Denvironment_proxy=enabled \
 	-Dinstalled_tests=false
 
 %ninja_build -C build
