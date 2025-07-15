@@ -42,17 +42,17 @@ implementację GTlsConnection opartą na gnutls.
 %setup -q
 
 %build
-%meson build \
+%meson \
 	--default-library=shared \
 	-Denvironment_proxy=enabled \
 	-Dinstalled_tests=false
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name}
 
