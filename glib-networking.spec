@@ -1,16 +1,17 @@
 Summary:	Networking support for GLib
 Summary(pl.UTF-8):	Obsługa sieci dla GLiba
 Name:		glib-networking
-Version:	2.80.1
+Version:	2.90.0
 Release:	1
 License:	LGPL v2.1+ with OpenSSL exception
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glib-networking/2.80/%{name}-%{version}.tar.xz
-# Source0-md5:	405e6c058723217a1307ba8415615f9d
+Source0:	https://download.gnome.org/sources/glib-networking/2.90/%{name}-%{version}.tar.xz
+# Source0-md5:	87d6ce1d1dab10fb20ea783ca55e40a1
 URL:		https://gitlab.gnome.org/GNOME/glib-networking
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.73.3
+# or openssl >= 1.1.1 with -Dgnutls=disabled -Dopenssl=enabled
 BuildRequires:	gnutls-devel >= 3.7.4
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	libproxy-devel >= 0.4.16
